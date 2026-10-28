@@ -1,0 +1,1095 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=IBM+Plex+Sans:wght@400;450;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+
+/* Royal Reach / field notes. Paper, ink, hand-drawn annotations. */
+:root {
+  --ink: #292b37;
+  --blue: #3947d8;
+  --orange: #ff825c;
+  --yellow: #f6e376;
+  --sheet: #fffdf7;
+  --paper: #f5f1e7;
+  --line: #d6d0c3;
+  --muted: #77766e;
+  --green: #3947d8;
+  --green-dark: #2531ae;
+  --lime: #f6e376;
+  --text: #292b37;
+  --sidebar: 228px;
+  --display: 'Oswald', 'Arial Narrow', sans-serif;
+  --hand: 'Caveat', cursive;
+  --body: 'IBM Plex Sans', sans-serif;
+  font-family: var(--body);
+  background: var(--paper);
+  color: var(--ink);
+}
+body { background: var(--paper); }
+::selection { background: var(--yellow); color: var(--ink); }
+.app-shell { color: var(--ink); }
+.app-shell button:focus-visible, .app-shell a:focus-visible { outline: 2px dashed var(--blue); outline-offset: 5px; }
+.app-shell input:focus, .app-shell textarea:focus, .app-shell select:focus { outline-color: #9da5ef; }
+.app-shell .workspace-main {
+  background-color: var(--paper);
+  background-image: radial-gradient(#292b3716 .65px, transparent .65px);
+  background-size: 18px 18px;
+}
+.app-shell .main-content { max-width: 1570px; padding: 33px 38px 0; animation: none; }
+.app-shell .sidebar {
+  background: var(--paper); color: var(--ink); border-right: 1px solid var(--ink);
+  padding: 27px 17px 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: #cbc4b6 transparent;
+}
+.app-shell .brand { padding: 0 8px; gap: 12px; color: var(--ink); font-family: var(--display); font-size: 23px; font-weight: 600; letter-spacing: -.5px; }
+.app-shell .brand-mark { display: grid; place-items: center; width: 37px; height: 44px; color: var(--ink); background: var(--orange); border: 1px solid var(--ink); transform: rotate(-5deg); flex-shrink: 0; }
+.app-shell .brand-mark svg { width: 29px; height: 33px; }
+.app-shell .brand-mark svg path { fill: none; stroke: currentColor; stroke-width: 1.8px; }
+.app-shell .brand small { font-family: var(--body); font-size: 6px; letter-spacing: 1.15px; margin-top: 5px; color: #737166; font-weight: 500; }
+.app-shell .workspace-pill { margin: 27px 3px 22px; padding: 10px 7px; border: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); border-radius: 0; gap: 9px; }
+.app-shell .workspace-icon { background: none; color: var(--blue); border: 1px solid var(--blue); border-radius: 50% 45% 49% 46%; font-family: var(--hand); font-size: 23px; width: 28px; height: 28px; transform: rotate(-8deg); }
+.app-shell .workspace-pill strong { font-size: 10px; color: var(--ink); font-weight: 500; }
+.app-shell .workspace-pill small { color: #8b877a; font-size: 8px; margin-top: 3px; }
+.app-shell .workspace-pill > svg { color: #898579; width: 12px; }
+.app-shell .nav-label { color: #8b8576; font-size: 8px; letter-spacing: 1.6px; padding: 0 10px; margin-bottom: 13px; }
+.app-shell .sidebar nav { gap: 3px; }
+.app-shell .nav-link { min-height: 39px; gap: 11px; padding: 9px 11px; border-radius: 0; color: #69675f; font-size: 12px; font-weight: 450; position: relative; }
+.app-shell .nav-link:before { content: attr(data-index); font-family: var(--body); font-size: 8px; letter-spacing: .5px; color: #9f9786; min-width: 15px; }
+.app-shell .nav-link > svg { display: none; }
+.app-shell .nav-link:hover { color: var(--blue); background: #e9e6dc; }
+.app-shell .nav-link.active { color: var(--blue); background: #e5e5f4; font-weight: 600; }
+.app-shell .nav-link.active:after { content: ''; position: absolute; bottom: 4px; left: 36px; right: 18px; border-bottom: 1.5px solid var(--blue); transform: rotate(-1.2deg); }
+.app-shell .nav-link.active:before { color: var(--blue); }
+.app-shell .nav-link b { color: var(--ink); background: var(--orange); border: 1px solid var(--ink); border-radius: 50%; font-size: 8px; padding: 1px 4px; min-width: 17px; margin-right: -2px; z-index: 1; }
+.app-shell .nav-new, .app-shell .nav-link.active .nav-new { color: #918877; border: 0; background: none; font-size: 6px; letter-spacing: 1px; }
+.app-shell .nav-divider { background: var(--line); margin: 12px 9px; }
+.app-shell .sidebar-bottom { padding-top: 28px; }
+.app-shell .sidebar-note { background: #eee9dc; border: 1px solid #c8c1b2; padding: 16px; border-radius: 0; margin: 0 4px 22px; transform: rotate(-1.6deg); overflow: visible; }
+.app-shell .sidebar-note:before { content: ''; width: 42px; height: 14px; position: absolute; background: #d9d1b9aa; top: -8px; right: 24px; transform: rotate(10deg); }
+.app-shell .sidebar-note:after { display: none; }
+.app-shell .sidebar-note .tiny-spark { display: none; }
+.app-shell .sidebar-note strong { font-family: var(--hand); font-size: 22px; line-height: 1.1; font-weight: 600; color: var(--blue); }
+.app-shell .sidebar-note p { color: #8a8070; font-size: 10px; line-height: 1.6; }
+.app-shell .sidebar-note button { color: #766951; font-size: 9px; text-decoration: underline; text-underline-offset: 3px; }
+.app-shell .help-link { color: #89806e; font-size: 9px; padding: 0 8px; margin-bottom: 17px; }
+.app-shell .help-link svg:last-child { color: #89806e; }
+.app-shell .profile { border-top: 1px solid var(--ink); gap: 9px; padding: 15px 4px 18px; }
+.app-shell .profile strong { color: var(--ink); font-size: 10px; }
+.app-shell .profile small { color: #968c79; font-size: 8px; margin-top: 3px; }
+.app-shell .profile > .icon-btn { color: #928875; }
+.app-shell .topbar { height: 66px; background: var(--paper); border-bottom: 1px solid var(--ink); padding: 0 38px; }
+.app-shell .breadcrumb { color: #938a78; font-size: 10px; gap: 14px; }
+.app-shell .breadcrumb strong { color: var(--ink); font-size: 11px; font-weight: 500; }
+.app-shell .slash { color: var(--orange); font-size: 17px; }
+.app-shell .topbar-actions { gap: 21px; }
+.app-shell .global-search { color: #9b907c; font-size: 10px; }
+.app-shell .global-search kbd { border-color: #c9c1ae; color: #9b907c; border-radius: 0; }
+.app-shell .demo-label { background: none; color: #8c8067; border: 1px dashed #b7ab92; border-radius: 0; padding: 5px 8px; font-size: 8px; transform: rotate(1.4deg); }
+.app-shell .demo-label i, .app-shell .status-dot { background: var(--orange); }
+.app-shell .icon-btn { color: #918571; border-radius: 1px; }
+.app-shell .icon-btn:hover { color: var(--blue); background: #e4e3f2; }
+.app-shell .notification i { background: var(--orange); border-color: var(--paper); }
+.app-shell .avatar { font-family: var(--body); border-radius: 43% 49% 45% 47%; font-weight: 500; color: #69685d; background: #e9e4d5; border: 1px solid #c6c0b1; }
+.app-shell .avatar.sage { background: #e2e4dc; color: #797c69; }
+.app-shell .avatar.peach { background: #f6dfd1; color: #ac775a; }
+.app-shell .avatar.blue { background: #e0e2f3; color: #717ba9; }
+.app-shell .avatar.lilac { background: #e9deed; color: #a482ac; }
+.app-shell .avatar.sand { background: #eee7bf; color: #a49755; }
+.app-shell .avatar.rose { background: #f0d9dc; color: #b07c88; }
+.app-shell .avatar i { background: var(--blue); border-color: var(--sheet); }
+.app-shell .page-title { margin-bottom: 29px; gap: 22px; align-items: flex-end; }
+.app-shell .eyebrow { font-size: 8px; font-family: var(--body); font-weight: 500; letter-spacing: 1.7px; color: #9b8d73; }
+.app-shell .page-title h1 { font-family: var(--display); color: var(--ink); font-size: clamp(34px, 3.5vw, 51px); font-weight: 500; letter-spacing: -.3px; line-height: 1.08; text-transform: uppercase; margin: 12px 0; }
+.app-shell .page-title p { font-family: var(--body); font-size: 12px; line-height: 1.7; color: #8c826f; }
+.app-shell .page-actions { padding-bottom: 5px; }
+.app-shell .btn { font-family: var(--body); border-radius: 0; border: 1px solid var(--ink); font-size: 11px; padding: 12px 17px; min-height: 42px; line-height: 1.4; font-weight: 500; }
+.app-shell .btn.primary { background: var(--blue); border-color: var(--blue); color: white; box-shadow: 3px 3px 0 #252b7e; }
+.app-shell .btn.primary:hover:not(:disabled) { background: #2e3bc4; transform: translate(-1px,-1px); box-shadow: 4px 4px 0 #252b7e; }
+.app-shell .btn.secondary { background: transparent; color: var(--ink); border-color: #c5bba5; box-shadow: none; }
+.app-shell .btn.secondary:hover:not(:disabled) { background: #e8e2d3; border-color: #9e9278; }
+.app-shell .btn.ghost { color: #8a7c60; border-color: transparent; box-shadow: none; }
+.app-shell .btn.ghost:hover { background: #eee8d9; }
+.app-shell .text-link { color: var(--blue); font-size: 11px; text-underline-offset: 4px; }
+.app-shell .text-link:hover { text-decoration: underline; color: #2734b7; }
+.app-shell .text-link.muted { color: #a08c65; font-size: 10px; }
+.app-shell .muted { color: #a19276; font-size: 10px; }
+.app-shell .badge { font-family: var(--body); padding: 4px 7px; border-radius: 1px; font-size: 9px; font-weight: 400; border: 1px solid transparent; }
+.app-shell .badge.green, .app-shell .badge.soft { background: #e8ebdc; color: #7b885b; border-color: #cdd3b9; }
+.app-shell .badge.gray { background: #efebe0; color: #9d9072; border-color: #ddd4bf; }
+.app-shell .badge.sand { background: #fbefbd; color: #9e8b40; border-color: #e6d892; }
+.app-shell .badge.purple { background: #e9e7f8; color: #8f88b9; border-color: #d1cbed; }
+.app-shell .panel { background: var(--sheet); border: 1px solid #d5cdbb; border-radius: 2px; box-shadow: none; }
+.app-shell .panel-heading h2, .app-shell .panel-heading h3 { font-family: var(--body); font-size: 16px; color: var(--ink); font-weight: 500; letter-spacing: -.3px; }
+.app-shell .panel-heading .eyebrow { color: #ab9b7c; font-size: 7px; letter-spacing: 1.4px; margin-bottom: 8px; }
+.app-shell .dashboard-top { grid-template-columns: minmax(0,2.5fr) minmax(240px,1fr); gap: 22px; }
+.app-shell .welcome-card { background: var(--orange); border: 1px solid var(--ink); border-radius: 1px; min-height: 330px; padding: 28px 31px; overflow: hidden; }
+.app-shell .welcome-card:before { content: ''; position: absolute; inset: 7px; border: 1px solid #292b3730; pointer-events: none; }
+.app-shell .welcome-content { max-width: 70%; }
+.app-shell .label-pill { background: none; color: #6e3d31; padding: 0; font-size: 8px; text-transform: uppercase; letter-spacing: 1.2px; gap: 7px; }
+.app-shell .sun-symbol { font-size: 18px; }
+.app-shell .welcome-card h2 { font-family: var(--display); font-size: clamp(43px,4.2vw,66px); font-weight: 500; text-transform: uppercase; line-height: 1.05; letter-spacing: -.7px; color: var(--ink); margin: 21px 0 19px; }
+.app-shell .welcome-card h2 > span { position: relative; z-index: 1; }
+.app-shell .welcome-card h2 > span:after { content: ''; position: absolute; bottom: -9px; left: 2px; width: 85%; height: 7px; border-top: 2px solid var(--ink); transform: rotate(-1.8deg); border-radius: 50%; opacity: .65; z-index: -1; }
+.app-shell .welcome-card p { color: #884b35; font-size: 12px; line-height: 1.7; margin: 20px 0; }
+.app-shell .welcome-card .btn { background: var(--ink); border-color: var(--ink); box-shadow: 3px 3px 0 #d55538; font-size: 10px; color: #fff4e5; min-height: 41px; padding: 11px 14px; }
+.app-shell .welcome-card .btn:hover { background: #181a27; box-shadow: 4px 4px 0 #d55538; }
+.conversation-sketch { position: absolute; right: 6px; top: 16px; width: 285px; color: var(--ink); transform: rotate(-3deg); pointer-events: none; }
+.conversation-sketch svg { width: 100%; height: auto; }
+.sketch-type { font-family: var(--hand); font-weight: 600; fill: #292b37; font-size: 28px; }
+.sketch-caption { font-family: var(--hand); fill: #7c432f; font-size: 19px; }
+.hero-margin-note { position: absolute; right: 24px; bottom: 21px; color: #743d2c; font-family: var(--hand); font-size: 20px; line-height: .95; transform: rotate(-5deg); }
+.app-shell .daily-focus { background: var(--yellow); border: 1px solid #b9a34f; border-radius: 0; box-shadow: 4px 5px 0 #c7b86950; padding: 23px 18px; position: relative; transform: rotate(.7deg); }
+.app-shell .daily-focus:before { content: ''; height: 31px; width: 13px; border: 1.5px solid #8b7941; border-radius: 7px; position: absolute; top: -12px; right: 25px; transform: rotate(15deg); box-shadow: inset 3px 0 0 var(--yellow); }
+.app-shell .section-top .eyebrow { color: #a79142; font-size: 8px; }
+.app-shell .fire-mini { color: #a38736; font-size: 10px; }
+.app-shell .focus-ring { width: 122px; height: 122px; margin: 15px auto 12px; }
+.app-shell .focus-ring circle { stroke: #d9c669; stroke-width: 2px; stroke-dasharray: 3 4; }
+.app-shell .focus-ring .ring-value { stroke: var(--ink); stroke-width: 3px; stroke-dasharray: 295; }
+.app-shell .focus-ring strong { font-family: var(--display); font-size: 43px; font-weight: 500; color: var(--ink); }
+.app-shell .focus-ring strong small { font-family: var(--body); font-size: 13px; color: #b09a4c; }
+.app-shell .focus-ring > div > span { font-size: 9px; color: #a08a3a; }
+.app-shell .daily-focus h3 { font-family: var(--hand); font-weight: 600; font-size: 24px; color: #6b5a2a; line-height: 1.05; transform: rotate(-2deg); }
+.app-shell .daily-focus > p { color: #a28c3b; font-size: 10px; line-height: 1.8; margin: 11px 0 17px; }
+.app-shell .daily-focus .text-link { color: #65542b; font-size: 10px; text-decoration: underline; text-underline-offset: 4px; }
+.app-shell .stats-grid { margin: 26px 0 30px; gap: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+.app-shell .stat-card { background: var(--paper); border: 0; border-right: 1px solid var(--line); border-radius: 0; padding: 22px 25px 19px; }
+.app-shell .stat-card:first-child { padding-left: 0; }
+.app-shell .stat-card:last-child { border: 0; padding-right: 0; }
+.app-shell .stat-card > div:first-child { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: #998d75; }
+.app-shell .stat-icon, .app-shell .stat-icon.amber { background: none; color: #a49779; padding: 0; }
+.app-shell .stat-number { margin-top: 9px; gap: 7px; }
+.app-shell .stat-number > strong { font-family: var(--display); color: var(--ink); font-size: 52px; font-weight: 400; letter-spacing: -1px; line-height: 1.1; }
+.app-shell .stat-number > span:not(.badge) { color: #a19377; font-size: 13px; }
+.app-shell .stat-number .badge { background: none; color: var(--blue); border: 0; font-family: var(--hand); font-size: 19px; padding: 0; transform: rotate(-5deg); margin-left: 8px; }
+.app-shell .stat-note { color: #a79b82; font-size: 10px; padding-right: 65px; line-height: 1.7; margin-top: 9px; }
+.app-shell .sparkline { width: 92px; bottom: 15px; height: 29px; }
+.app-shell .sparkline path { stroke: var(--blue); stroke-width: 1.6px; }
+.app-shell .dashboard-bottom { grid-template-columns: minmax(0,2fr) minmax(260px,1fr); gap: 23px; }
+.app-shell .main-column, .app-shell .side-column { gap: 23px; }
+.app-shell .task-panel, .app-shell .funnel-panel { padding: 24px 25px; }
+.app-shell .task-panel { padding-bottom: 7px; border-top: 3px solid var(--ink); }
+.app-shell .task-panel .panel-heading h2 { display: inline; background: linear-gradient(transparent 62%, #f6e376 62%, #f6e376 92%, transparent 92%); }
+.app-shell .task-row { border-color: #e3dccb; padding: 20px 0; gap: 12px; }
+.app-shell .task-check { border: 1px solid #b8aa8d; border-radius: 2px 4px 3px 2px; width: 17px; height: 17px; transform: rotate(-4deg); }
+.app-shell .task-check:hover, .app-shell .task-check.checked { color: var(--blue); border-color: var(--blue); background: #e1e3f2; }
+.app-shell .task-row strong { color: #625b4b; font-size: 12px; font-weight: 500; }
+.app-shell .task-row > div > button, .app-shell .task-row > div > span { font-size: 9px; color: #a79673; }
+.app-shell .task-row > div > button span { color: #bbae94; }
+.app-shell .task-time { font-family: var(--body); font-size: 10px; color: #9d8c6a; }
+.app-shell .task-row > .icon-btn { color: #9e8c67; }
+.app-shell .funnel-bars { gap: 15px; }
+.app-shell .funnel-bar { border-radius: 2px 2px 0 0; border: 1px solid #858799; border-bottom: 0; }
+.app-shell .funnel-bar strong { font-family: var(--hand); font-size: 24px; font-weight: 500; }
+.app-shell .funnel-bars button:nth-child(-n+3) strong { color: var(--ink); }
+.app-shell .funnel-bars button:last-child .funnel-bar { transform: rotate(-2deg); border-color: #a0684b; }
+.app-shell .funnel-bars button > span { font-size: 8px; color: #a29377; }
+.app-shell .ai-insight { position: relative; background: #edeaf5; border: 1px solid #bdb5d7; border-radius: 0; padding: 25px; transform: rotate(-.6deg); }
+.app-shell .ai-insight:before { content: ''; height: 16px; width: 52px; background: #c9c2d880; position: absolute; top: -8px; left: 36px; transform: rotate(-10deg); }
+.app-shell .ai-flag { color: #9e90b2; font-size: 9px; gap: 6px; }
+.app-shell .demo-dot { background: #b6a9cb; }
+.app-shell .ai-insight h3 { font-family: var(--hand); font-weight: 600; color: #605375; font-size: 32px; line-height: .98; letter-spacing: -.5px; margin: 20px 0 17px; }
+.app-shell .ai-insight > p { color: #a398b0; font-size: 11px; line-height: 1.85; }
+.app-shell .insight-source > span { color: #aca0b8; font-size: 9px; }
+.app-shell .ai-insight > button { color: #8d7ba3; font-size: 10px; border-color: #d7cfe1; }
+.app-shell .ai-insight > small { color: #b8abc5; font-size: 7px; }
+.app-shell .mini-team { padding: 20px 23px 8px; }
+.app-shell .mini-team h2 { font-size: 15px; }
+.app-shell .mini-team-row { border-color: #e9e1d0; padding: 14px 0; gap: 10px; }
+.app-shell .rank { font-family: var(--hand); font-size: 18px; color: #b1a181; width: 12px; }
+.app-shell .mini-team-row > span:not(.avatar):not(.rank) { font-size: 11px; color: #7d7259; }
+.app-shell .mini-team-row small { color: #b4a583; font-size: 8px; }
+.app-shell .mini-team-row > strong { font-family: var(--display); font-size: 17px; color: #77694d; }
+.app-shell .mini-team-row > strong small { font-family: var(--body); font-size: 6px; }
+.app-shell .page-footer { border-top: 1px solid #d8ceba; color: #b6a685; padding: 20px 0; margin-top: 29px; font-size: 7px; letter-spacing: 1.2px; }
+.app-shell .page-footer button { color: #b3a27e; font-size: 8px; letter-spacing: 0; }
+
+/* Academy: a route drawn in the margins of a working notebook. */
+.app-shell .section-tabs { gap: 28px; border-color: var(--ink); margin-bottom: 25px; }
+.app-shell .section-tabs button { font-size: 12px; color: #b09c79; padding-bottom: 15px; }
+.app-shell .section-tabs button.active { color: var(--blue); font-weight: 500; }
+.app-shell .section-tabs button.active:after { height: 3px; background: var(--blue); border-radius: 50%; transform: rotate(-1deg); bottom: -1px; }
+.app-shell .section-tabs button > span { color: #aa9a78; background: #eae2d0; border-radius: 0; font-size: 8px; }
+.app-shell .academy-counters { font-size: 10px; gap: 18px; }
+.app-shell .academy-counters > span:first-child { color: #ac8b54; }
+.app-shell .xp-pill { background: var(--yellow); color: #8a732f; border: 1px solid #d0bc6c; padding: 8px 13px; border-radius: 0; font-family: var(--hand); font-size: 22px; line-height: 1.1; transform: rotate(-4deg); }
+.app-shell .academy-hero { background: var(--blue); color: white; border: 1px solid #292e75; border-radius: 0; padding: 33px 35px; min-height: 310px; margin-bottom: 31px; }
+.app-shell .academy-hero > div:first-child { max-width: 70%; }
+.app-shell .academy-hero .eyebrow { color: #b2b9f9; }
+.app-shell .academy-hero h2 { font-family: var(--display); font-size: 46px; font-weight: 450; text-transform: uppercase; line-height: 1.08; letter-spacing: -.3px; color: #fff9e9; margin: 20px 0; }
+.app-shell .academy-hero p { font-size: 12px; line-height: 1.7; color: #c1c6f7; max-width: 420px; }
+.app-shell .academy-hero .btn { color: var(--ink); background: var(--yellow); border-color: var(--yellow); box-shadow: 3px 3px 0 #222e93; }
+.app-shell .hero-time { color: #aeb6f3; font-size: 9px; margin-left: 15px; }
+.route-sketch { position: absolute; right: 22px; bottom: 0; width: 315px; color: #c0c7ff; pointer-events: none; }
+.route-sketch svg { width: 100%; height: auto; }
+.route-number { fill: #292b37; font-family: var(--hand); font-size: 32px; }
+.route-note { fill: #c8cdfd; font-family: var(--hand); font-size: 26px; }
+.app-shell .academy-layout { grid-template-columns: minmax(0,2.15fr) minmax(250px,1fr); gap: 25px; }
+.app-shell .learning-path > .panel-heading { margin-bottom: 25px; }
+.app-shell .learning-path > .panel-heading h2 { font-size: 15px; }
+.app-shell .module-card { border: 1px solid #d7ccb4; border-radius: 0; background: var(--sheet); margin-bottom: 13px; min-height: 136px; padding: 23px 21px 23px 0; gap: 19px; }
+.app-shell .module-card.current { border: 1px solid var(--blue); box-shadow: 4px 4px 0 #e1d8c4; }
+.app-shell .module-card.completed { border-color: #c4c5a6; }
+.app-shell .module-card.locked { background: #f0eadc; }
+.app-shell .module-card.locked .module-content { opacity: .55; }
+.app-shell .module-track { width: 70px; border-color: #e3d7bf; }
+.app-shell .module-track > span { background: none; border: 1px solid #c2b496; color: #b1a07c; width: 37px; height: 37px; border-radius: 45% 48% 42% 49%; font-family: var(--hand); font-size: 26px; font-weight: 500; transform: rotate(-5deg); }
+.app-shell .current .module-track > span { background: var(--yellow); color: #796527; border-color: #d1bc69; }
+.app-shell .completed .module-track > span { background: #e9ebd5; color: #949d67; border-color: #c5caaa; }
+.app-shell .locked .module-track > span { background: none; color: #c0b18f; }
+.app-shell .module-content > .eyebrow { color: #b7a484; font-size: 7px; letter-spacing: 1.1px; }
+.app-shell .module-content > strong { color: #6f644f; font-size: 14px; font-weight: 500; }
+.app-shell .module-content > span:not(.eyebrow) { color: #ad9c7d; font-size: 11px; }
+.app-shell .module-content small { font-size: 9px; color: #baaa8a; }
+.app-shell .module-next { background: var(--blue); color: white; border-radius: 1px; width: 33px; height: 33px; }
+.app-shell .lock-note { color: #bcab89; font-size: 8px; }
+.app-shell .academy-side { padding-top: 41px; gap: 22px; }
+.app-shell .habit-card { padding: 23px; background: #fff9e8; border-color: #dccb9c; transform: rotate(.6deg); }
+.app-shell .habit-card h3 { font-family: var(--hand); color: #9c7f39; font-size: 25px; font-weight: 600; }
+.app-shell .week-days span { color: #baa56e; font-size: 8px; }
+.app-shell .week-days i { color: #cabd96; background: none; border: 1px solid #e2d4ae; border-radius: 45% 49% 43% 48%; font-family: var(--hand); font-size: 16px; width: 25px; height: 25px; }
+.app-shell .week-days i.done { background: var(--yellow); border-color: #cfbd76; color: #b09b53; }
+.app-shell .week-days i.today { background: none; border: 1px solid var(--blue); color: var(--blue); transform: rotate(-7deg); }
+.app-shell .habit-card p { font-size: 11px; color: #b5a073; line-height: 1.8; }
+.app-shell .skill-card { background: #ece9f3; border-color: #cbc2dc; }
+.app-shell .skill-card .icon-tile { border: 1px solid #b5a4c8; border-radius: 50%; background: none; color: #b8a2c7; }
+.app-shell .skill-card h3 { color: #a28bb4; font-size: 13px; }
+.app-shell .skill-card > p { font-family: var(--hand); color: #b49ac5; font-size: 29px; font-weight: 500; }
+.app-shell .skill-card > small { color: #bca9ca; font-size: 9px; }
+.app-shell .progress-track { background: #e8dfca; height: 5px; border-radius: 0; }
+.app-shell .progress-track > span { background: var(--blue); border-radius: 0; }
+.app-shell .skill-note { border-color: #d9cee2; color: #b6a3c4; font-size: 9px; }
+.app-shell .quiet-note { color: #baaa88; }
+.app-shell .quiet-note p { font-size: 9px; color: #b4a280; }
+.app-shell .daily-practice { padding: 35px; }
+.app-shell .daily-illustration { border: 1px solid #cbb995; background: #f8e59b; color: #ae954e; border-radius: 0; transform: rotate(-1deg); }
+.app-shell .daily-illustration > span { font-family: var(--hand); color: #aa8d40; font-size: 17px; letter-spacing: 0; max-width: 190px; text-align: center; }
+.app-shell .daily-practice h2 { font-family: var(--display); font-size: 33px; font-weight: 450; color: #8d7850; text-transform: uppercase; }
+.app-shell .daily-practice p { color: #b09d7a; font-size: 12px; }
+.app-shell .duration-picker button { border-color: #d8c7a5; border-radius: 0; color: #b29b72; font-size: 11px; }
+.app-shell .duration-picker button.active { border-color: var(--blue); background: #e9e8f8; color: var(--blue); }
+.app-shell .section-explainer h2 { font-family: var(--display); font-weight: 450; font-size: 32px; text-transform: uppercase; color: #8e7954; }
+.app-shell .section-explainer p { font-size: 12px; color: #af9b76; }
+.app-shell .case-card { padding: 25px; }
+.app-shell .case-card strong { color: #a0895d; font-size: 13px; }
+.app-shell .case-card small { color: #bca783; font-size: 10px; }
+.app-shell .case-card blockquote { font-family: var(--hand); font-size: 27px; line-height: 1.1; color: #ac9569; margin: 26px 0; }
+.app-shell .approved-strip { background: #e4e8d3; border: 1px solid #cad0ad; border-radius: 0; font-size: 11px; color: #9ca66e; }
+
+/* Working tools keep a quiet, readable surface. */
+.app-shell .inbox-layout { border: 1px solid var(--ink); border-radius: 1px; min-height: 480px; height: calc(100dvh - 246px); }
+.app-shell .conversation-list { border-color: #d9cdb4; background: #f6f0e2; }
+.app-shell .conversation-list-head { padding: 22px 18px 16px; color: #b6a27b; }
+.app-shell .conversation-list-head strong { color: #8f784f; font-family: var(--display); font-size: 23px; font-weight: 400; text-transform: uppercase; }
+.app-shell .conversation-list-head strong > span { font-family: var(--hand); font-size: 20px; color: #baa27a; }
+.app-shell .input-search { background: #fffaf0; border: 1px solid #d6c7a7; border-radius: 1px; color: #b7a078; }
+.app-shell .input-search input { color: #a28b62; font-size: 11px; }
+.app-shell .input-search input::placeholder { color: #c2b18d; }
+.app-shell .input-search:focus-within { border-color: var(--blue); box-shadow: none; }
+.app-shell .mini-tabs { gap: 3px; }
+.app-shell .mini-tabs button { color: #b9a479; font-size: 9px; border-radius: 0; }
+.app-shell .mini-tabs button.active { background: var(--yellow); color: #a38a41; }
+.app-shell .conversation { border-color: #e3d6ba; padding-top: 18px; padding-bottom: 18px; }
+.app-shell .conversation.selected { background: #ede7d5; }
+.app-shell .conversation.selected:before { background: var(--blue); width: 3px; }
+.app-shell .conversation:hover { background: #f0e7d2; }
+.app-shell .conversation strong { color: #9b8151; font-size: 12px; }
+.app-shell .conversation > div > span { color: #bba178; font-size: 10px; }
+.app-shell .conversation p { color: #bba785; font-size: 10px; }
+.app-shell .conversation time { color: #c5b18b; font-size: 8px; }
+.app-shell .unread-dot { background: var(--orange); }
+.app-shell .channel-dot { border-color: #f6f0e2; }
+.app-shell .channel-dot.max, .app-shell .channel-label .max { background: #b4a0d6; }
+.app-shell .channel-dot.tg, .app-shell .channel-label .tg { background: #82a9de; }
+.app-shell .list-foot { border-color: #e4d6ba; color: #c3b18e; font-size: 7px; }
+.app-shell .chat-window { background: var(--sheet); }
+.app-shell .chat-head { background: var(--sheet); border-color: #e5d8bd; height: 82px; }
+.app-shell .chat-head h2 { color: #9d855a; font-size: 15px; }
+.app-shell .chat-head > div > span { font-size: 10px; color: #bba77f; }
+.app-shell .chat-stage { background: #fbf4e5; color: #baa174; border-color: #e8dbc0; font-size: 10px; }
+.app-shell .chat-stage > span:last-child { color: #ad9469; }
+.app-shell .chat-date { font-size: 9px; color: #c7b99a; }
+.app-shell .message > div { background: #f7f0df; border-color: #e1d2b3; border-radius: 1px 8px 7px 1px; box-shadow: none; padding: 14px; }
+.app-shell .message p { font-size: 12px; line-height: 1.8; color: #ac9569; }
+.app-shell .message time { font-size: 8px; color: #c5b28e; }
+.app-shell .message.me > div { background: #e8e7f8; border-color: #c7c3e6; border-radius: 8px 1px 1px 7px; }
+.app-shell .message.me p { color: #9a93bd; }
+.app-shell .message.me time { color: #b4acd0; }
+.app-shell .chat-system { font-size: 7px; color: #c8b99b; }
+.app-shell .suggest-button { color: #b39b6f; font-family: var(--hand); font-size: 20px; gap: 8px; }
+.app-shell .suggest-button > span { font-family: var(--body); font-size: 6px; border-color: #d9c9a7; color: #c0ab82; border-radius: 0; }
+.app-shell .composer { background: #fffdf7; border: 1px solid #c8b58e; border-radius: 1px; }
+.app-shell .composer textarea { font-size: 12px; color: #af9466; background: none; }
+.app-shell .composer textarea::placeholder { color: #c8b58f; }
+.app-shell .composer > div > span { font-size: 7px; color: #ccbb9a; }
+.app-shell .send-button { background: var(--blue); color: white; border-radius: 1px; }
+.app-shell .send-button:disabled { background: #d5c8aa; }
+.app-shell .context-panel { border-color: #dfd2b8; background: #fff9ec; padding-left: 21px; padding-right: 21px; }
+.app-shell .context-tabs { border-color: #ddccb0; gap: 25px; }
+.app-shell .context-tabs button { color: #b9a278; font-size: 11px; }
+.app-shell .context-tabs button.active { color: #a38c60; }
+.app-shell .context-tabs button.active:after { background: var(--orange); height: 2px; transform: rotate(-1deg); }
+.app-shell .ai-icon { background: none; border: 1px solid #ceb994; border-radius: 50%; color: #b69d72; }
+.app-shell .context-intro h3 { font-family: var(--hand); font-size: 30px; line-height: 1.05; font-weight: 600; color: #a78b58; }
+.app-shell .context-intro p { color: #bda87f; font-size: 11px; }
+.app-shell .context-panel > .btn { font-size: 9px; }
+.app-shell .context-card { border-color: #dfccaa; border-radius: 0; background: #fbf0d9; }
+.app-shell .context-card strong { font-size: 12px; color: #b39968; }
+.app-shell .context-card p { color: #c4ae85; font-size: 9px; }
+.app-shell .context-tip { color: #c6b089; }
+.app-shell .context-tip p { color: #c6b089; font-size: 10px; }
+.app-shell .analysis-result h4 { color: #b59b6a; font-size: 12px; font-weight: 500; }
+.app-shell .analysis-result p, .app-shell .analysis-result li { color: #c1ab81; font-size: 11px; }
+.app-shell .quote-box { background: #f7ecd2; border-color: var(--orange); color: #b7a071; font-family: var(--hand); font-size: 21px; line-height: 1.2; }
+.app-shell .analysis-result .btn { font-size: 9px; }
+.app-shell .analysis-result > small { color: #ccb994; font-size: 7px; }
+.app-shell .client-context h3 { color: #ad9468; font-size: 15px; }
+.app-shell .client-context > p { color: #c4ae85; font-size: 11px; }
+.app-shell .client-context dt { color: #c6af85; font-size: 9px; }
+.app-shell .client-context dd { color: #b39a6b; font-size: 11px; }
+.app-shell .mobile-analysis { background: #f8edcf; color: #b49862; border-color: #e3d0aa; }
+.app-shell .mobile-analysis > span { border-color: #d9c39a; color: #bda06d; border-radius: 0; }
+.app-shell .client-summary { background: transparent; border: 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); border-radius: 0; padding: 25px 0; }
+.app-shell .client-summary > div { border-color: #d8cbb3; padding-left: 30px; }
+.app-shell .client-summary > div:first-child { padding-left: 0; }
+.app-shell .client-summary span { color: #b09a73; font-size: 11px; }
+.app-shell .client-summary strong { font-family: var(--display); font-size: 34px; font-weight: 400; color: #94794d; letter-spacing: -.5px; }
+.app-shell .client-summary small { font-family: var(--body); color: #baa481; font-size: 11px; }
+.app-shell .table-toolbar { padding: 21px; }
+.app-shell .table-toolbar select, .app-shell .form-label select { background: var(--sheet); border-color: #d2bd94; color: #b1986d; font-size: 11px; border-radius: 0; }
+.app-shell .view-toggle { border-color: #d2bf99; border-radius: 0; }
+.app-shell .view-toggle button { color: #bba47c; border-radius: 0; }
+.app-shell .view-toggle button.active { color: #a68f61; background: #eee1c6; }
+.app-shell .client-table th { border-color: #e2d3b5; background: #f4e9d2; color: #b29b70; font-size: 10px; }
+.app-shell .client-table td { border-color: #eadcc0; padding-top: 20px; padding-bottom: 20px; }
+.app-shell .table-person strong { color: #ac9060; font-size: 13px; }
+.app-shell .table-person small { color: #bfa67d; font-size: 10px; }
+.app-shell .channel-label, .app-shell .owner-name { color: #b49c70; font-size: 11px; }
+.app-shell .money-cell { color: #a58c5d; font-family: var(--body); font-size: 12px !important; }
+.app-shell .table-foot { color: #c0aa80; font-size: 9px; }
+.app-shell .client-card { border-color: #d9c49c; border-radius: 0; }
+.app-shell .client-card:hover { background: #f8efd9; }
+.app-shell .client-card h3 { color: #ac905c; font-size: 15px; }
+.app-shell .client-card p { color: #c0a57a; font-size: 11px; }
+.app-shell .client-card > span { color: #b59c70; font-size: 11px; }
+.app-shell .client-card footer { border-color: #e3d1ad; }
+.app-shell .client-card footer strong { color: #ad915d; font-size: 13px; }
+
+/* Editorial reports and a card index for shared knowledge. */
+.app-shell .segmented { background: none; border: 1px solid #d2bc91; border-radius: 0; gap: 0; padding: 3px; }
+.app-shell .segmented button { color: #baa172; border-radius: 0; font-size: 10px; }
+.app-shell .segmented button.active { background: #e5e4f5; color: var(--blue); }
+.app-shell .chart-card { border-top: 3px solid var(--blue); }
+.app-shell .chart-legend > strong { font-family: var(--display); font-size: 45px; font-weight: 400; color: #b09462; }
+.app-shell .chart-legend small { font-family: var(--body); font-size: 13px; color: #c8b28a; }
+.app-shell .chart-legend > span { color: #c2aa7e; font-size: 10px; }
+.app-shell .chart-legend i { background: var(--blue); }
+.app-shell .chart-grid > span { color: #ccb994; font-size: 8px; }
+.app-shell .chart-grid > span:after { background: #e8d8b9; }
+.app-shell .chart-labels { color: #c3ac81; font-size: 9px; }
+.app-shell .competency { margin: 24px 0; }
+.app-shell .competency > div:first-child { color: #b79e70; font-size: 11px; }
+.app-shell .competency strong { color: #a88c59; font-size: 12px; }
+.app-shell .competency-card > p { color: #cab28a; border-color: #e7d5b2; font-size: 9px; }
+.app-shell .review-table { padding: 25px 27px 0; }
+.app-shell .review-row { border-color: #e5d2af; padding: 24px 0; }
+.app-shell .review-row strong { color: #b09563; font-size: 13px; }
+.app-shell .review-row > div > span { color: #c4aa7e; font-size: 10px; }
+.app-shell .review-indicator { border: 1px solid #dcc69a; border-radius: 1px; background: #f4e9ce; color: #bda268; }
+.app-shell .review-indicator.green { background: #e8ebd8; color: #a9b082; border-color: #d3d6b7; }
+.app-shell .review-indicator.blue { background: #e6e6f5; color: #a3a5d2; border-color: #c9c8e7; }
+.app-shell .methodology-note h3 { font-family: var(--hand); font-size: 30px; color: #b09561; font-weight: 600; }
+.app-shell .methodology-note p { font-size: 12px; color: #c1a778; }
+.app-shell .knowledge-hero { background: #f6e5ad; border-color: #d5bc7a; border-radius: 0; padding: 29px 30px; gap: 24px; }
+.app-shell .knowledge-orbit { border: 1px dashed #bda368; background: none; color: #b49a61; width: 77px; height: 77px; border-radius: 48% 44% 47% 43%; transform: rotate(-6deg); }
+.app-shell .knowledge-orbit:after { display: none; }
+.app-shell .knowledge-hero h2 { font-family: var(--display); text-transform: uppercase; font-size: 32px; font-weight: 400; color: #a18650; line-height: 1.1; }
+.app-shell .knowledge-hero p { color: #b59b65; font-size: 11px; }
+.app-shell .knowledge-hero .ai-flag { color: #baa168; }
+.app-shell .knowledge-hero .btn { font-size: 10px; }
+.app-shell .filter-pills button { color: #bba173; font-size: 10px; border-radius: 0; padding: 8px 12px; }
+.app-shell .filter-pills button.active { background: var(--sheet); color: #a58c5a; border-color: #c8ae7b; }
+.app-shell .knowledge-card { background: #fff9e9; border: 1px solid #d9c29a; padding: 24px; min-height: 300px; border-top: 5px solid #d2c0eb; position: relative; }
+.app-shell .knowledge-card:nth-child(3n+2) { border-top-color: #f6c891; }
+.app-shell .knowledge-card:nth-child(3n+3) { border-top-color: #c5d4e9; }
+.app-shell .knowledge-card:hover { box-shadow: 4px 4px 0 #e4d3b4; transform: rotate(-.5deg) translateY(-2px); }
+.app-shell .knowledge-card h3 { color: #ae8e58; font-family: var(--body); font-size: 16px; line-height: 1.5; font-weight: 500; }
+.app-shell .knowledge-card > p { color: #bfa577; font-size: 12px; line-height: 1.8; }
+.app-shell .knowledge-card footer { color: #c5ae83; font-size: 9px; border-color: #e5d0ab; }
+.app-shell .knowledge-card > div { color: #bfa475; }
+.app-shell .icon-tile, .app-shell .icon-tile.peach, .app-shell .icon-tile.blue { border: 1px solid #dac29b; background: none; color: #b6a078; border-radius: 2px 6px 3px 8px; }
+.app-shell .knowledge-footnote { color: #c8af82; }
+.app-shell .knowledge-footnote p { color: #c8af82; font-size: 10px; }
+.app-shell .team-banner { background: var(--orange); border-color: var(--ink); border-radius: 0; padding: 30px 35px; }
+.app-shell .team-banner .eyebrow { color: #b36247; }
+.app-shell .team-banner h2 { color: #593e36; font-family: var(--display); text-transform: uppercase; font-size: 42px; line-height: 1.06; font-weight: 450; letter-spacing: -.5px; }
+.app-shell .team-banner p { color: #b46d50; font-size: 11px; }
+.app-shell .team-stack .avatar { border: 2px solid #e97451; border-radius: 44% 48% 42% 49%; box-shadow: 3px 3px 0 #cd583e; margin-left: -7px; transform: rotate(-5deg); }
+.app-shell .team-stack .avatar:nth-child(2n) { transform: translateY(10px) rotate(7deg); }
+.app-shell .team-stack > span:last-child { font-family: var(--hand); font-size: 24px; color: #a75c43; line-height: 1.1; transform: rotate(-4deg); margin-top: 27px; }
+.app-shell .team-stack strong { font-weight: 600; color: #7c4b3b; }
+.app-shell .team-toolbar h2 { font-size: 17px; color: #b18f58; font-weight: 500; }
+.app-shell .person-card { border-color: #d9c099; border-radius: 1px; padding: 25px; }
+.app-shell .person-card:hover { border-color: #b49b70; box-shadow: 4px 4px 0 #e6d1ad; }
+.app-shell .person-rank { font-family: var(--hand); font-size: 23px; color: #c1a578; }
+.app-shell .person-rank.first { color: #b79b5b; background: #faedbd; border-radius: 0; }
+.app-shell .person-card h3 { color: #b18e56; font-size: 16px; }
+.app-shell .person-card h3 small { background: #eee3cc; color: #bba073; border-radius: 0; }
+.app-shell .person-card > p { color: #c3a576; font-size: 11px; }
+.app-shell .person-numbers strong { font-family: var(--display); color: #b18b50; font-size: 34px; font-weight: 400; }
+.app-shell .person-numbers small { font-family: var(--body); color: #c5aa7d; font-size: 11px; }
+.app-shell .person-numbers span { color: #c8ad81; font-size: 9px; }
+.app-shell .person-numbers > div:last-child { border-color: #e6d0ab; }
+.app-shell .person-growth, .app-shell .person-growth strong { color: #c0a171; font-size: 10px; }
+.app-shell .person-card footer { color: #b39a6d; border-color: #e6cfaa; font-size: 10px; }
+.app-shell .integration-notice { border: 1px dashed #d1b88e; border-radius: 0; background: #f5e6c7; color: #bfa16e; }
+.app-shell .integration-notice strong { color: #b7955f; font-size: 12px; }
+.app-shell .integration-notice p { font-size: 10px; color: #c1a26f; }
+.app-shell .integration-card { padding: 26px; border-color: #d4b990; }
+.app-shell .service-logo { border: 1px solid #9d8c71; border-radius: 4px 9px 4px 8px; transform: rotate(-4deg); box-shadow: 2px 2px 0 #e3cb9f; }
+.app-shell .service-logo.telegram { background: #91b6e6; }
+.app-shell .service-logo.max { background: #b1a0df; }
+.app-shell .service-logo.gpt { background: #d5c5a8; color: #8e7b5b; }
+.app-shell .service-logo.supabase { background: #eddf9e; color: #aa9455; }
+.app-shell .integration-card h2 { color: #b6935d; font-family: var(--display); font-size: 27px; font-weight: 400; letter-spacing: .3px; }
+.app-shell .integration-card p { color: #c0a06d; font-size: 12px; }
+.app-shell .integration-detail { color: #bca16e; font-size: 11px; }
+.app-shell .integration-card footer { border-color: #e2c9a2; }
+.app-shell .integration-card footer > span { color: #c7ac7e; font-size: 10px; }
+.app-shell .integration-card footer i { background: #cbb58e; }
+.app-shell .architecture { border-color: #d2b48a; padding: 28px; }
+.app-shell .architecture-step > span { background: #f3e5c5; border: 1px dashed #cfb27e; border-radius: 48% 43% 44% 47%; color: #b69a65; }
+.app-shell .architecture-step h3 { color: #b7965e; font-size: 13px; }
+.app-shell .architecture-step p { color: #c3a473; font-size: 10px; }
+.app-shell .flow-arrow { color: #bda172; }
+.app-shell .architecture-caption { color: #c1a271; border-color: #e3cba5; font-size: 10px; }
+
+/* Dialogs are pages of the same notebook, not another UI kit. */
+.app-shell .modal-backdrop { background: #292b3770; backdrop-filter: blur(2px); }
+.app-shell .modal { background: var(--sheet); border: 1px solid var(--ink); border-radius: 2px; box-shadow: 8px 8px 0 #161d3b50; padding: 32px; }
+.app-shell .modal > header .eyebrow { color: #b79a6a; font-size: 8px; }
+.app-shell .modal h2 { font-family: var(--display); font-size: 32px; font-weight: 450; text-transform: uppercase; color: #a78955; letter-spacing: -.3px; line-height: 1.15; }
+.app-shell .modal-close { color: #bda478; }
+.app-shell .modal-actions { border-color: #e3cba6; margin-top: 27px; padding-top: 22px; }
+.app-shell .modal-actions .btn { font-size: 11px; }
+.app-shell .form-label { color: #b2986b; font-size: 12px; gap: 9px; }
+.app-shell .form-label input, .app-shell .form-label textarea, .app-shell .form-label select { background: #fffaf0; border: 1px solid #cfb58d; border-radius: 1px; color: #b29564; font-size: 13px; }
+.app-shell .form-label input::placeholder, .app-shell .form-label textarea::placeholder { color: #c6b18c; }
+.app-shell .small-note { color: #c4ac83; font-size: 10px; line-height: 1.8; }
+.app-shell .modal-person h3 { color: #b49460; font-family: var(--display); font-size: 28px; }
+.app-shell .modal-person > div > span { color: #c2a77b; font-size: 11px; }
+.app-shell .detail-list dt { color: #c1a67b; font-size: 11px; }
+.app-shell .detail-list dd { color: #b3996e; font-size: 12px; }
+.app-shell .article-meta { color: #c3a87e; font-size: 10px; }
+.app-shell .article-body { font-size: 14px; color: #b89b6b; line-height: 1.9; }
+.app-shell .source-box { background: #f5e7c9; border-color: #dfc397; border-radius: 0; color: #c5a674; }
+.app-shell .source-box p, .app-shell .source-box strong, .app-shell .source-box small { color: #bca06f; font-size: 11px; }
+.app-shell .report-observation { background: #f4e5c5; border-color: #dfc397; border-radius: 0; }
+.app-shell .report-observation h3 { color: #b79760; font-size: 13px; }
+.app-shell .report-observation p { color: #bea271; font-size: 12px; }
+.app-shell .settings-option { border-color: #e3cba6; }
+.app-shell .settings-option strong { color: #b89a67; font-size: 13px; }
+.app-shell .settings-option p, .app-shell .modal-copy { color: #c0a574; font-size: 12px; }
+.app-shell .about-hero { background: #f5e09e; border: 1px solid #d3b773; border-radius: 0; }
+.app-shell .about-hero p { font-family: var(--hand); color: #b99b57; font-size: 26px; line-height: 1.2; }
+.app-shell .about-hero .icon-tile { background: none; color: #b89a56; border-color: #d1b875; }
+.app-shell .about-grid h3 { color: #b79660; font-size: 13px; }
+.app-shell .check-list li, .app-shell .future-list li { color: #c0a271; font-size: 11px; }
+.app-shell .check-list li:before { color: #b7a570; }
+.app-shell .about-notice { border-color: #dfc398; color: #c2a473; border-radius: 0; }
+.app-shell .about-notice p { color: #c1a574; font-size: 10px; }
+.app-shell .lesson-progress { gap: 7px; }
+.app-shell .lesson-progress span { background: #ead9b8; border-radius: 0; height: 4px; }
+.app-shell .lesson-progress span.active { background: var(--blue); }
+.app-shell .lesson-art { background: #f4dfa1; border: 1px solid #d2b976; border-radius: 0; color: #b79a57; }
+.app-shell .lesson-art > span { font-family: var(--hand); color: #b49653; font-size: 30px; line-height: 1.1; }
+.app-shell .lesson-lead { color: #b69a68; font-size: 14px; }
+.app-shell .lesson-comparison > div { border-color: #dfc398; border-radius: 0; }
+.app-shell .lesson-comparison > div:last-child { background: #e8e9d7; border-color: #c9cba9; }
+.app-shell .lesson-comparison span { color: #bda26f; font-size: 11px; }
+.app-shell .lesson-comparison > div:last-child span { color: #abb17d; }
+.app-shell .lesson-comparison p { color: #bca171; font-size: 12px; }
+.app-shell .source-inline { color: #c3a67a; font-size: 10px; }
+.app-shell .quiz-context { background: #f1e2c2; border-color: #dfc59b; border-radius: 0; }
+.app-shell .quiz-context strong { color: #c0a572; font-size: 11px; }
+.app-shell .quiz-context p { font-family: var(--hand); color: #ba9a62; font-size: 27px; line-height: 1.2; }
+.app-shell .quiz-title { color: #b79862; font-size: 16px; font-weight: 500; }
+.app-shell .quiz-options button { border-color: #d6b98b; border-radius: 1px; color: #b99c6b; font-size: 12px; }
+.app-shell .quiz-options button > span { color: #ba9b65; border-color: #cfb284; border-radius: 50%; font-family: var(--hand); font-size: 18px; }
+.app-shell .quiz-options button:hover { background: #fbf0d7; }
+.app-shell .quiz-options button.correct { background: #ececd7; border-color: #b6bc86; color: #a9b076; }
+.app-shell .quiz-options button.incorrect { background: #f9e0c4; border-color: #d2a671; color: #c0935c; }
+.app-shell .quiz-feedback { border-radius: 0; font-size: 12px; }
+.app-shell .quiz-feedback.success { background: #ececd8; color: #abb17c; }
+.app-shell .quiz-feedback.retry { background: #f9e5ca; color: #c29d68; }
+.app-shell .roleplay-label > span:last-child { color: #c1a679; font-size: 8px; }
+.app-shell .roleplay-client > div { background: #f4e3c0; border-color: #dac095; border-radius: 1px 10px 8px 1px; }
+.app-shell .roleplay-client strong { color: #c0a16c; font-size: 12px; }
+.app-shell .roleplay-client p { color: #bfa16e; font-size: 13px; }
+.app-shell .practice-meta { color: #c5ac80; font-size: 9px; }
+.app-shell .practice-evaluation { border-color: #d7be95; border-radius: 0; }
+.app-shell .practice-evaluation h3 { color: #b99b66; font-size: 15px; }
+.app-shell .practice-evaluation .pass { color: #aab078; }
+.app-shell .practice-evaluation .miss { color: #c09b63; }
+.app-shell .practice-evaluation > div { font-size: 12px; }
+.app-shell .practice-evaluation p { color: #c0a572; border-color: #e2cba5; font-size: 12px; }
+.app-shell .success-seal { border: 1px solid #d0b67c; color: #b39b5d; background: #f7e5ab; border-radius: 44% 48% 43% 47%; transform: rotate(-4deg); }
+.app-shell .success-seal > span { color: #b49b60; }
+.app-shell .lesson-success h2 { font-family: var(--hand); color: #b6975d; font-size: 39px; text-transform: none; font-weight: 600; line-height: 1.05; }
+.app-shell .lesson-success > p { color: #c0a575; font-size: 13px; }
+.app-shell .success-xp { color: #b3995c; font-family: var(--hand); font-size: 33px; transform: rotate(-4deg); }
+.app-shell .success-xp span, .app-shell .lesson-success > small { font-family: var(--body); color: #c5ad82; font-size: 9px; }
+.app-shell .review-client { border-color: #e2c69d; }
+.app-shell .review-client strong { color: #b99a65; font-size: 13px; }
+.app-shell .review-client > div > span { color: #c5ab80; font-size: 10px; }
+.app-shell .review-content-grid .eyebrow { color: #c2a576; font-size: 8px; }
+.app-shell .review-quote { font-family: var(--hand); color: #b99b66; border-color: var(--orange); font-size: 30px; line-height: 1.1; }
+.app-shell .review-content-grid h4 { color: #bda16e; font-size: 12px; }
+.app-shell .review-content-grid p { color: #c5ad80; font-size: 12px; }
+.app-shell .review-content-grid .form-label { font-size: 11px; }
+.app-shell .review-content-grid textarea { font-size: 12px; }
+.app-shell .review-content-grid .small-note { font-size: 9px; }
+.app-shell .ask-form input { background: #fffaf0; border-color: #d0b68d; border-radius: 0; color: #b59b6d; font-size: 13px; }
+.app-shell .ask-form input::placeholder { color: #c6af86; }
+.app-shell .example-queries button { border-color: #dfc59d; border-radius: 0; color: #bfa36f; font-size: 10px; }
+.app-shell .search-result { border-color: #e1c69f; }
+.app-shell .search-result h3 { color: #b89a65; font-size: 16px; }
+.app-shell .search-result p { color: #c0a676; font-size: 13px; }
+.app-shell .search-result button { background: #f2e4c6; border-radius: 0; color: #bea270; font-size: 10px; }
+.app-shell .global-results > .eyebrow { color: #bfa273; }
+.app-shell .global-results button { color: #b89c6d; font-size: 13px; border-radius: 0; }
+.app-shell .global-results button:hover { background: #f6ebd4; }
+.app-shell .global-results small { color: #c3ab82; font-size: 10px; }
+.app-shell .global-results button > svg:last-child { color: #c5ad83; }
+.app-shell .empty { color: #c3ab83; }
+.app-shell .empty h3 { color: #baa173; font-size: 15px; }
+.app-shell .empty p { color: #c1ab83; font-size: 11px; }
+.app-shell .toast { background: var(--ink); color: #fff2d8; border: 1px solid #171a27; box-shadow: 4px 4px 0 #c8b99a; border-radius: 1px; font-size: 12px; left: calc(50% + 114px); }
+.app-shell .toast > span { background: var(--yellow); color: #9f8a45; border-radius: 40% 47% 44% 49%; }
+
+/* Keep the reading surface neutral; coloured ink is used for annotations. */
+.app-shell :is(.module-content > strong,.chat-head h2,.client-context h3,.table-person strong,.client-card h3,.review-row strong,.knowledge-card h3,.person-card h3,.integration-card h2,.modal h2,.modal-person h3,.about-grid h3,.quiz-title,.practice-evaluation h3,.review-client strong,.search-result h3,.team-toolbar h2,.chart-legend > strong,.client-summary strong,.person-numbers strong) { color: var(--ink); }
+.app-shell :is(.message p,.message.me p,.lesson-lead,.lesson-comparison p,.quiz-options button,.roleplay-client p,.form-label input,.form-label textarea,.ask-form input,.detail-list dd,.article-body,.search-result p,.global-results button,.client-context dd) { color: #6e685a; }
+.app-shell :is(.page-title p,.ai-insight > p,.module-content > span:not(.eyebrow),.habit-card p,.case-card small,.conversation > div > span,.conversation p,.chat-head > div > span,.client-summary span,.table-person small,.channel-label,.owner-name,.competency > div:first-child,.review-row > div > span,.methodology-note p,.knowledge-card > p,.person-card > p,.integration-card p,.integration-detail,.form-label,.settings-option p,.detail-list dt,.check-list li,.future-list li,.practice-evaluation p,.review-content-grid p,.lesson-success > p,.report-observation p,.modal-copy) { color: #8d806a; }
+.app-shell :is(.conversation strong,.context-intro h3,.context-card strong,.context-card p,.context-tip p,.analysis-result h4,.analysis-result p,.analysis-result li,.client-context > p,.person-growth,.person-growth strong,.architecture-step h3,.architecture-step p,.source-box p,.source-box strong,.source-box small,.source-inline,.review-content-grid h4,.review-content-grid .eyebrow) { color: #9c8a6c; }
+.app-shell :is(.daily-focus h3,.focus-ring strong,.skill-card h3,.habit-card h3,.daily-practice h2,.section-explainer h2,.knowledge-hero h2,.methodology-note h3,.lesson-success h2,.quiz-context p,.review-quote) { color: #62563f; }
+.app-shell :is(.table-foot,.page-footer,.page-footer button,.small-note,.list-foot,.chat-system,.analysis-result > small,.roleplay-label > span:last-child,.practice-meta,.source-box small,.knowledge-card footer,.person-numbers span,.person-numbers small,.person-card footer,.architecture-caption,.knowledge-footnote p) { color: #b4a17d; }
+
+@media (max-height: 850px) and (min-width: 481px) { .app-shell .sidebar-note { display: none; } .app-shell .sidebar-bottom { padding-top: 20px; } }
+@media (max-width: 1300px) {
+  :root { --sidebar: 216px; }
+  .app-shell .sidebar { padding-left: 13px; padding-right: 13px; }
+  .app-shell .brand { font-size: 21px; gap: 10px; }
+  .app-shell .main-content { padding: 30px 28px 0; }
+  .app-shell .topbar { padding: 0 28px; }
+  .app-shell .welcome-card { padding: 28px; min-height: 325px; }
+  .app-shell .welcome-card h2 { font-size: 52px; }
+  .conversation-sketch { width: 246px; right: -8px; top: 26px; }
+  .hero-margin-note { right: 18px; bottom: 23px; font-size: 18px; }
+  .app-shell .dashboard-top { grid-template-columns: minmax(0,2.35fr) minmax(225px,1fr); gap: 20px; }
+  .app-shell .daily-focus { padding: 23px 13px; }
+  .app-shell .daily-focus h3 { font-size: 23px; }
+  .app-shell .stat-card { padding-left: 21px; padding-right: 21px; }
+  .app-shell .stat-note { font-size: 9px; }
+  .app-shell .dashboard-bottom { grid-template-columns: minmax(0,1.9fr) minmax(245px,1fr); gap: 20px; }
+  .app-shell .task-panel,.app-shell .funnel-panel { padding-left: 21px; padding-right: 21px; }
+  .app-shell .task-row strong { font-size: 11px; }
+  .app-shell .panel-heading h2 { font-size: 14px; }
+  .app-shell .ai-insight { padding: 23px; }
+  .app-shell .ai-insight h3 { font-size: 31px; }
+  .app-shell .academy-hero h2 { font-size: 42px; }
+  .route-sketch { width: 275px; right: 12px; }
+  .app-shell .academy-layout { grid-template-columns: minmax(0,2fr) minmax(230px,1fr); gap: 21px; }
+  .app-shell .module-track { width: 58px; }
+  .app-shell .module-card { gap: 16px; }
+  .app-shell .module-content > strong { font-size: 13px; }
+  .app-shell .module-content > span:not(.eyebrow) { font-size: 10px; }
+  .app-shell .module-tail .badge { font-size: 8px; }
+  .app-shell .inbox-layout { grid-template-columns: 225px minmax(260px,1fr) 255px; }
+  .app-shell .context-panel { padding-left: 17px; padding-right: 17px; }
+  .app-shell .context-intro h3 { font-size: 29px; }
+  .app-shell .table-person strong { font-size: 12px; }
+  .app-shell .knowledge-card { padding: 21px; }
+  .app-shell .toast { left: calc(50% + 108px); }
+}
+@media (max-width: 1100px) {
+  :root { --sidebar: 200px; }
+  .app-shell .sidebar { padding: 25px 10px 0; }
+  .app-shell .brand { font-size: 20px; gap: 9px; padding-left: 6px; }
+  .app-shell .brand-mark { width: 32px; height: 40px; }
+  .app-shell .brand small { font-size: 5px; letter-spacing: 1px; }
+  .app-shell .nav-link { padding-left: 10px; padding-right: 10px; font-size: 11px; }
+  .app-shell .workspace-pill strong { font-size: 9px; }
+  .app-shell .main-content { padding: 27px 23px 0; }
+  .app-shell .topbar { padding: 0 23px; }
+  .app-shell .page-title h1 { font-size: 39px; }
+  .app-shell .page-title p { font-size: 11px; }
+  .app-shell .dashboard-top { grid-template-columns: minmax(0,2.15fr) minmax(210px,1fr); gap: 17px; }
+  .app-shell .welcome-card { padding: 25px; min-height: 320px; }
+  .app-shell .welcome-card h2 { font-size: 46px; }
+  .app-shell .welcome-card p { font-size: 10px; }
+  .app-shell .welcome-content { max-width: 86%; }
+  .app-shell .label-pill { font-size: 6px; letter-spacing: 1px; }
+  .conversation-sketch { width: 195px; right: -47px; top: 40px; opacity: .4; }
+  .hero-margin-note { font-size: 16px; right: 18px; bottom: 18px; }
+  .app-shell .daily-focus h3 { font-size: 22px; }
+  .app-shell .focus-ring { width: 112px; height: 112px; }
+  .app-shell .daily-focus > p { font-size: 9px; }
+  .app-shell .stat-card > div:first-child { font-size: 9px; letter-spacing: .6px; }
+  .app-shell .stat-number > strong { font-size: 48px; }
+  .app-shell .stat-number .badge { font-size: 16px; }
+  .app-shell .stat-note { font-size: 8px; padding-right: 0; }
+  .app-shell .sparkline { display: none; }
+  .app-shell .dashboard-bottom { grid-template-columns: minmax(0,1.8fr) minmax(225px,1fr); gap: 17px; }
+  .app-shell .task-row strong { font-size: 10px; }
+  .app-shell .task-time { font-size: 9px; }
+  .app-shell .task-row > div > button { font-size: 8px; }
+  .app-shell .panel-heading h2 { font-size: 13px; }
+  .app-shell .funnel-bars { gap: 10px; }
+  .app-shell .funnel-bars button > span { font-size: 7px; }
+  .app-shell .ai-insight { padding: 20px; }
+  .app-shell .ai-insight > p { font-size: 10px; }
+  .app-shell .mini-team { padding: 17px; }
+  .app-shell .mini-team-row > span:not(.avatar):not(.rank) { font-size: 10px; }
+  .app-shell .mini-team-row small { font-size: 7px; }
+  .app-shell .academy-hero { padding: 29px; min-height: 320px; }
+  .app-shell .academy-hero h2 { font-size: 37px; }
+  .app-shell .academy-hero > div:first-child { max-width: 75%; }
+  .app-shell .academy-hero p { font-size: 11px; max-width: 360px; }
+  .app-shell .hero-time { display: block; margin: 16px 0 0; }
+  .route-sketch { width: 245px; right: 3px; opacity: .8; }
+  .app-shell .academy-layout { grid-template-columns: minmax(0,1.85fr) minmax(215px,1fr); gap: 18px; }
+  .app-shell .module-track { width: 49px; }
+  .app-shell .module-card { padding-right: 15px; gap: 13px; }
+  .app-shell .module-content > strong { font-size: 12px; }
+  .app-shell .module-content > span:not(.eyebrow) { font-size: 9px; }
+  .app-shell .module-content > .eyebrow { font-size: 6px; letter-spacing: .8px; }
+  .app-shell .module-content small { font-size: 8px; }
+  .app-shell .module-tail .badge { font-size: 7px; }
+  .app-shell .habit-card { padding: 18px; }
+  .app-shell .habit-card h3 { font-size: 22px; }
+  .app-shell .habit-card p { font-size: 10px; }
+  .app-shell .week-days i { width: 22px; height: 22px; font-size: 14px; }
+  .app-shell .inbox-layout { grid-template-columns: 220px minmax(240px,1fr); }
+  .app-shell .context-panel { display: none; }
+  .app-shell .client-summary strong { font-size: 30px; }
+  .app-shell .client-summary span { font-size: 10px; }
+  .app-shell .client-table .badge { font-size: 8px; }
+  .app-shell .table-person strong { font-size: 11px; }
+  .app-shell .table-person small { font-size: 9px; }
+  .app-shell .channel-label,.app-shell .owner-name { font-size: 10px; }
+  .app-shell .knowledge-hero h2 { font-size: 29px; }
+  .app-shell .knowledge-hero p { font-size: 10px; }
+  .app-shell .team-banner h2 { font-size: 36px; }
+  .app-shell .person-card h3 { font-size: 14px; }
+  .app-shell .toast { left: calc(50% + 100px); }
+}
+@media (max-width: 850px) and (min-width: 481px) {
+  :root { --sidebar: 73px; }
+  .app-shell .sidebar { padding: 24px 8px 0; }
+  .app-shell .brand { padding: 0; justify-content: center; }
+  .app-shell .brand-mark { width: 36px; height: 43px; }
+  .app-shell .brand-wordmark,.app-shell .workspace-pill,.app-shell .nav-label { display: none; }
+  .app-shell .sidebar nav { margin-top: 31px; gap: 7px; }
+  .app-shell .nav-link { justify-content: center; padding: 12px; min-height: 43px; }
+  .app-shell .nav-link > svg { display: block; width: 19px; }
+  .app-shell .nav-link:before,.app-shell .nav-link.active:after { display: none; }
+  .app-shell .nav-link b { position: absolute; top: 2px; right: 1px; font-size: 6px; min-width: 13px; padding: 1px 3px; margin: 0; }
+  .app-shell .sidebar-note,.app-shell .help-link,.app-shell .profile > div,.app-shell .profile > .icon-btn { display: none; }
+  .app-shell .profile { justify-content: center; padding: 18px 0; }
+  .app-shell .toast { left: calc(50% + 36px); }
+}
+@media (max-width: 700px) {
+  .app-shell .main-content { padding: 26px 20px 0; }
+  .app-shell .topbar { height: 61px; padding: 0 20px; }
+  .app-shell .topbar-actions { gap: 12px; }
+  .app-shell .page-title { align-items: flex-start; margin-bottom: 26px; gap: 14px; }
+  .app-shell .page-title h1 { font-size: 37px; line-height: 1.05; }
+  .app-shell .page-title p { font-size: 10px; line-height: 1.7; }
+  .app-shell .page-actions { padding-top: 22px; }
+  .app-shell .page-title .eyebrow { font-size: 7px; letter-spacing: 1.2px; }
+  .app-shell .dashboard-top { grid-template-columns: minmax(0,1fr) 175px; gap: 14px; }
+  .app-shell .welcome-card { min-height: 320px; padding: 25px 22px; }
+  .app-shell .welcome-card h2 { font-size: 42px; line-height: 1.05; }
+  .app-shell .welcome-card p { font-size: 10px; }
+  .app-shell .welcome-card .btn { font-size: 9px; padding: 10px; }
+  .conversation-sketch { right: -88px; width: 190px; opacity: .27; }
+  .hero-margin-note { font-size: 16px; bottom: 20px; }
+  .app-shell .daily-focus { padding: 22px 11px; }
+  .app-shell .section-top .eyebrow { font-size: 6px; }
+  .app-shell .fire-mini { font-size: 8px; }
+  .app-shell .focus-ring { width: 98px; height: 98px; margin-top: 22px; }
+  .app-shell .focus-ring strong { font-size: 36px; }
+  .app-shell .focus-ring strong small { font-size: 10px; }
+  .app-shell .focus-ring > div > span { font-size: 7px; }
+  .app-shell .daily-focus h3 { font-size: 22px; }
+  .app-shell .daily-focus > p { font-size: 8px; line-height: 1.7; margin: 12px 0 19px; }
+  .app-shell .daily-focus .text-link { font-size: 8px; gap: 6px; }
+  .app-shell .stats-grid { margin: 25px 0; }
+  .app-shell .stat-card { padding: 18px 15px; }
+  .app-shell .stat-card > div:first-child { font-size: 8px; letter-spacing: .5px; }
+  .app-shell .stat-number > strong { font-size: 46px; }
+  .app-shell .stat-number > span:not(.badge) { font-size: 10px; }
+  .app-shell .stat-icon { display: none; }
+  .app-shell .stat-number .badge { display: none; }
+  .app-shell .stat-note { font-size: 7px; min-height: 28px; line-height: 1.8; }
+  .app-shell .dashboard-bottom { grid-template-columns: 1fr; gap: 22px; }
+  .app-shell .side-column { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .app-shell .panel-heading h2 { font-size: 15px; }
+  .app-shell .task-panel { padding: 23px 23px 8px; }
+  .app-shell .task-row strong { font-size: 12px; }
+  .app-shell .task-row > div > button { font-size: 9px; }
+  .app-shell .task-time { font-size: 10px; }
+  .app-shell .ai-insight { padding: 23px; }
+  .app-shell .mini-team { padding: 20px 17px; }
+  .app-shell .mini-team-row > span:not(.avatar):not(.rank) { font-size: 10px; }
+  .app-shell .mini-team-row small { font-size: 7px; }
+  .app-shell .funnel-bars button > span { font-size: 8px; }
+  .app-shell .page-footer { margin-top: 27px; font-size: 7px; }
+  .app-shell .page-footer button { font-size: 8px; }
+  .app-shell .academy-counters { font-size: 9px; gap: 8px; }
+  .app-shell .xp-pill { font-size: 19px; padding: 6px 10px; }
+  .app-shell .section-tabs { gap: 23px; }
+  .app-shell .section-tabs button { font-size: 10px; }
+  .app-shell .academy-hero { padding: 28px; min-height: 330px; }
+  .app-shell .academy-hero h2 { font-size: 40px; }
+  .app-shell .academy-hero p { font-size: 11px; max-width: 290px; }
+  .app-shell .academy-hero > div:first-child { max-width: 90%; }
+  .route-sketch { right: -18px; width: 230px; opacity: .55; }
+  .app-shell .academy-layout { grid-template-columns: 1fr; gap: 25px; }
+  .app-shell .academy-side { padding-top: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .app-shell .module-card { min-height: 138px; gap: 20px; padding-right: 22px; }
+  .app-shell .module-track { width: 67px; }
+  .app-shell .module-content > strong { font-size: 14px; }
+  .app-shell .module-content > span:not(.eyebrow) { font-size: 11px; }
+  .app-shell .module-content > .eyebrow { font-size: 7px; }
+  .app-shell .module-tail .badge { font-size: 8px; }
+  .app-shell .lock-note { font-size: 8px !important; }
+  .app-shell .habit-card h3 { font-size: 25px; }
+  .app-shell .week-days i { width: 23px; height: 23px; }
+  .app-shell .daily-practice { padding: 27px; }
+  .app-shell .daily-practice h2 { font-size: 32px; }
+  .app-shell .daily-practice p { font-size: 12px; }
+  .app-shell .daily-illustration > span { font-size: 21px; max-width: none; }
+  .app-shell .duration-picker button { font-size: 11px; }
+  .app-shell .case-card blockquote { font-size: 29px; }
+  .app-shell .inbox-layout { display: flex; flex-direction: column; height: auto; min-height: 0; }
+  .app-shell .conversation-list-head { padding-top: 19px; padding-bottom: 14px; }
+  .app-shell .conversations { gap: 8px; padding: 0 12px 14px; }
+  .app-shell .conversation { border: 1px solid #dac29a; border-radius: 0; padding: 13px 10px; }
+  .app-shell .conversation strong { font-size: 10px; }
+  .app-shell .conversation > div > span { font-size: 8px; }
+  .app-shell .mini-tabs button { font-size: 9px; }
+  .app-shell .chat-window { min-height: 600px; border-radius: 0; }
+  .app-shell .chat-head h2 { font-size: 14px; }
+  .app-shell .chat-head > div > span { font-size: 10px; }
+  .app-shell .message p { font-size: 12px; }
+  .app-shell .chat-window:after { color: #bfa477; font-size: 9px; background: var(--sheet); }
+  .app-shell .client-summary { grid-template-columns: 1fr 1fr; padding: 20px 0; gap: 23px; }
+  .app-shell .client-summary > div { padding: 0; }
+  .app-shell .client-summary > div:first-child strong { font-size: 34px; }
+  .app-shell .client-summary > div:first-child span { font-size: 13px; }
+  .app-shell .client-summary strong { font-size: 31px; }
+  .app-shell .table-toolbar { padding: 18px; }
+  .app-shell .client-card h3 { font-size: 16px; }
+  .app-shell .competency-card { gap: 0 27px; }
+  .app-shell .competency > div:first-child { font-size: 11px; }
+  .app-shell .review-row strong { font-size: 12px; }
+  .app-shell .review-row > div > span { font-size: 10px; }
+  .app-shell .knowledge-hero { padding: 25px; gap: 18px; }
+  .app-shell .knowledge-orbit { width: 55px; height: 55px; }
+  .app-shell .knowledge-hero h2 { font-size: 30px; }
+  .app-shell .knowledge-hero p { font-size: 11px; }
+  .app-shell .knowledge-hero > .btn { margin-left: 73px; }
+  .app-shell .knowledge-card { padding: 23px; }
+  .app-shell .knowledge-card h3 { font-size: 15px; }
+  .app-shell .team-banner { padding: 28px; }
+  .app-shell .team-banner h2 { font-size: 40px; }
+  .app-shell .team-stack > span:last-child { font-size: 21px; margin-top: 22px; }
+  .app-shell .team-grid { gap: 18px; }
+  .app-shell .person-card { padding: 22px; }
+  .app-shell .person-card h3 { font-size: 14px; }
+  .app-shell .person-numbers strong { font-size: 29px; }
+  .app-shell .person-numbers small { font-size: 9px; }
+  .app-shell .person-numbers span { font-size: 8px; }
+  .app-shell .integration-card { padding: 23px; }
+  .app-shell .integration-card p { font-size: 11px; }
+  .app-shell .architecture { padding: 25px; }
+  .app-shell .architecture-step p { font-size: 9px; }
+  .app-shell .modal { padding: 28px; }
+  .app-shell .modal h2 { font-size: 31px; }
+  .app-shell .lesson-art > span { font-size: 28px; }
+  .app-shell .lesson-lead { font-size: 13px; }
+  .app-shell .review-quote { font-size: 29px; }
+}
+@media (max-width: 480px) {
+  :root { --sidebar: 0px; }
+  .app-shell .sidebar { width: 243px; padding: 26px 17px 0; }
+  .app-shell .brand { justify-content: flex-start; font-size: 23px; padding: 0 8px; gap: 12px; }
+  .app-shell .brand-wordmark { display: block; }
+  .app-shell .brand-mark { width: 37px; height: 44px; }
+  .app-shell .brand small { font-size: 6px; }
+  .app-shell .workspace-pill { display: flex; margin-top: 28px; margin-bottom: 24px; }
+  .app-shell .workspace-pill strong { font-size: 10px; }
+  .app-shell .nav-label { display: block; font-size: 8px; }
+  .app-shell .sidebar nav { margin-top: 0; gap: 4px; }
+  .app-shell .nav-link { justify-content: flex-start; font-size: 13px; padding: 10px 12px; min-height: 41px; }
+  .app-shell .nav-link:before { display: block; font-size: 8px; }
+  .app-shell .nav-link > svg { display: none; }
+  .app-shell .nav-link.active:after { display: block; }
+  .app-shell .nav-link b { position: static; margin-left: auto; font-size: 8px; min-width: 17px; }
+  .app-shell .sidebar-note { display: none; }
+  .app-shell .help-link { display: flex; margin-bottom: 18px; }
+  .app-shell .profile { justify-content: flex-start; }
+  .app-shell .profile > div { display: block; }
+  .app-shell .profile > .icon-btn { display: flex; }
+  .app-shell .nav-scrim { background: #292b3760; backdrop-filter: blur(2px); }
+  .app-shell .topbar { padding: 0 17px; height: 60px; }
+  .app-shell .topbar-actions { gap: 9px; }
+  .app-shell .demo-label { font-size: 7px; padding: 5px 7px; }
+  .app-shell .breadcrumb strong { font-size: 12px; }
+  .app-shell .main-content { padding: 25px 17px 0; }
+  .app-shell .page-title { gap: 11px; align-items: flex-start; margin-bottom: 25px; }
+  .app-shell .page-title h1 { font-size: 38px; letter-spacing: -.4px; line-height: 1.05; }
+  .app-shell .page-title p { font-size: 11px; line-height: 1.65; max-width: 280px; }
+  .app-shell .page-title .eyebrow { font-size: 7px; letter-spacing: 1px; }
+  .app-shell .page-actions { padding-top: 0; }
+  .app-shell .page-title > .page-actions > .btn { margin-top: 29px; min-height: 35px; height: 35px; width: 35px; border-color: #c9b48c; padding: 8px; font-size: 0; }
+  .app-shell .page-title > .page-actions > .btn svg { width: 17px; }
+  .app-shell .dashboard-top { grid-template-columns: 1fr; gap: 22px; }
+  .app-shell .welcome-card { min-height: 362px; padding: 28px 25px; }
+  .app-shell .welcome-content { max-width: 100%; }
+  .app-shell .label-pill { font-size: 7px; letter-spacing: 1.1px; }
+  .app-shell .welcome-card h2 { font-size: 55px; line-height: 1.05; margin: 24px 0 25px; }
+  .app-shell .welcome-card h2 > span:after { bottom: -8px; }
+  .app-shell .welcome-card p { font-size: 12px; max-width: 245px; margin-bottom: 23px; }
+  .app-shell .welcome-card .btn { font-size: 11px; padding: 13px 15px; }
+  .conversation-sketch { width: 185px; right: -52px; top: 160px; opacity: .23; transform: rotate(-8deg); }
+  .hero-margin-note { font-size: 18px; right: 15px; bottom: 17px; color: #9d5138; }
+  .app-shell .daily-focus { grid-template-columns: 89px 1fr; padding: 20px; min-height: 138px; column-gap: 18px; transform: rotate(.4deg); }
+  .app-shell .daily-focus:before { right: 24px; }
+  .app-shell .focus-ring { width: 87px; height: 87px; margin: 0; }
+  .app-shell .focus-ring strong { font-size: 33px; }
+  .app-shell .focus-ring strong small { font-size: 10px; }
+  .app-shell .focus-ring > div > span { font-size: 6px; }
+  .app-shell .section-top .eyebrow { font-size: 7px; }
+  .app-shell .daily-focus h3 { font-size: 24px; line-height: 1; margin: 8px 0; }
+  .app-shell .daily-focus .text-link { font-size: 10px; }
+  .app-shell .stats-grid { margin: 28px 0; }
+  .app-shell .stat-card { padding: 17px 11px; }
+  .app-shell .stat-card > div:first-child { font-size: 7px; letter-spacing: .5px; }
+  .app-shell .stat-number { margin-top: 8px; gap: 4px; }
+  .app-shell .stat-number > strong { font-size: 45px; }
+  .app-shell .stat-number > span:not(.badge) { font-size: 9px; }
+  .app-shell .stat-note { font-size: 7px; min-height: 32px; }
+  .app-shell .task-panel { padding: 24px 18px 6px; }
+  .app-shell .panel-heading h2 { font-size: 15px; }
+  .app-shell .panel-heading .eyebrow { font-size: 6px; }
+  .app-shell .panel-heading .text-link { font-size: 9px; }
+  .app-shell .task-row { padding: 20px 0; gap: 12px; }
+  .app-shell .task-row strong { font-size: 11px; }
+  .app-shell .task-row > div > button { font-size: 9px; }
+  .app-shell .task-time { font-size: 10px; }
+  .app-shell .funnel-panel { padding: 25px 19px; }
+  .app-shell .funnel-panel .panel-heading > .badge { font-size: 6px; max-width: 100px; line-height: 1.7; }
+  .app-shell .funnel-bars { gap: 9px; }
+  .app-shell .funnel-bar strong { font-size: 23px; }
+  .app-shell .funnel-bars button > span { font-size: 6px; }
+  .app-shell .side-column { display: flex; gap: 25px; }
+  .app-shell .ai-insight { padding: 27px; transform: rotate(-.5deg); }
+  .app-shell .ai-insight h3 { font-size: 36px; margin-top: 22px; }
+  .app-shell .ai-insight > p { font-size: 12px; }
+  .app-shell .ai-insight > button { font-size: 11px; }
+  .app-shell .ai-insight > small { font-size: 8px; }
+  .app-shell .insight-source > span { font-size: 10px; }
+  .app-shell .mini-team { padding: 23px; }
+  .app-shell .mini-team h2 { font-size: 16px; }
+  .app-shell .mini-team-row { gap: 12px; padding: 17px 0; }
+  .app-shell .mini-team-row > span:not(.avatar):not(.rank) { font-size: 12px; }
+  .app-shell .mini-team-row small { font-size: 8px; }
+  .app-shell .mini-team-row > strong { font-size: 21px; }
+  .app-shell .mini-team-row > strong small { font-size: 7px; }
+  .app-shell .rank { font-size: 21px; }
+  .app-shell .page-footer { margin-top: 30px; padding: 20px 0; gap: 15px; font-size: 7px; letter-spacing: .5px; }
+  .app-shell .page-footer button { font-size: 8px; }
+  .app-shell .page-title:has(.academy-counters) h1 { font-size: 36px; max-width: 245px; }
+  .app-shell .page-title:has(.academy-counters) p { font-size: 10px; max-width: 238px; }
+  .app-shell .academy-counters { padding-top: 6px; gap: 10px; font-size: 7px; margin-top: 24px; }
+  .app-shell .xp-pill { font-size: 18px; padding: 5px 8px; }
+  .app-shell .section-tabs { gap: 18px; margin-bottom: 23px; }
+  .app-shell .section-tabs button { font-size: 9px; padding-bottom: 13px; }
+  .app-shell .section-tabs button > span { font-size: 7px; }
+  .app-shell .academy-hero { padding: 27px 23px; min-height: 360px; margin-bottom: 29px; }
+  .app-shell .academy-hero .eyebrow { font-size: 7px; }
+  .app-shell .academy-hero h2 { font-size: 37px; margin: 19px 0; line-height: 1.08; }
+  .app-shell .academy-hero > div:first-child { max-width: 100%; }
+  .app-shell .academy-hero p { font-size: 11px; max-width: 235px; }
+  .app-shell .academy-hero .btn { font-size: 11px; padding: 12px 14px; }
+  .app-shell .hero-time { font-size: 8px; margin-top: 17px; }
+  .route-sketch { width: 202px; right: -28px; opacity: .35; }
+  .route-note { display: none; }
+  .app-shell .learning-path > .panel-heading h2 { font-size: 12px; max-width: 235px; }
+  .app-shell .learning-path > .panel-heading .muted { font-size: 9px; }
+  .app-shell .module-card { padding: 22px 13px 22px 0; gap: 14px; min-height: 143px; }
+  .app-shell .module-track { width: 45px; }
+  .app-shell .module-track > span { width: 29px; height: 29px; font-size: 23px; }
+  .app-shell .module-content > strong { font-size: 12px; line-height: 1.5; }
+  .app-shell .module-content > span:not(.eyebrow) { font-size: 10px; max-width: 205px; }
+  .app-shell .module-content > .eyebrow { font-size: 6px; letter-spacing: .7px; }
+  .app-shell .module-content small { font-size: 9px; }
+  .app-shell .module-tail .badge { font-size: 6px; padding: 3px 4px; }
+  .app-shell .lock-note { font-size: 6px !important; max-width: 34px !important; }
+  .app-shell .module-next { width: 26px; height: 29px; }
+  .app-shell .academy-side { display: flex; gap: 22px; }
+  .app-shell .habit-card { padding: 26px; }
+  .app-shell .habit-card h3 { font-size: 30px; }
+  .app-shell .week-days { gap: 7px; margin: 26px 0 21px; }
+  .app-shell .week-days span { font-size: 9px; }
+  .app-shell .week-days i { width: 29px; height: 29px; font-size: 18px; }
+  .app-shell .habit-card p { font-size: 12px; }
+  .app-shell .skill-card { padding: 28px; }
+  .app-shell .skill-card h3 { font-size: 14px; }
+  .app-shell .skill-card > p { font-size: 34px; }
+  .app-shell .skill-note { font-size: 10px; }
+  .app-shell .quiet-note p { font-size: 10px; }
+  .app-shell .daily-practice { padding: 23px; }
+  .app-shell .daily-practice h2 { font-size: 31px; }
+  .app-shell .daily-practice p { font-size: 12px; }
+  .app-shell .daily-illustration > span { font-size: 19px; }
+  .app-shell .case-card { padding: 24px; }
+  .app-shell .case-card strong { font-size: 14px; }
+  .app-shell .case-card small { font-size: 10px; }
+  .app-shell .case-card blockquote { font-size: 30px; }
+  .app-shell .section-explainer h2 { font-size: 29px; }
+  .app-shell .section-explainer p { font-size: 12px; line-height: 1.8; }
+  .app-shell .inbox-page .page-title > .page-actions > .badge { font-size: 6px; max-width: 75px; line-height: 1.8; margin-top: 28px; }
+  .app-shell .inbox-layout { border-radius: 0; }
+  .app-shell .conversation-list-head strong { font-size: 24px; }
+  .app-shell .conversation-list > .input-search { padding: 11px; }
+  .app-shell .conversation { min-height: 80px; }
+  .app-shell .conversation strong { font-size: 11px; }
+  .app-shell .conversation > div > span { font-size: 9px; }
+  .app-shell .chat-head { padding: 18px; height: 80px; }
+  .app-shell .chat-head h2 { font-size: 14px; }
+  .app-shell .chat-head > div > span { font-size: 10px; }
+  .app-shell .mobile-analysis { font-size: 11px; padding: 13px 18px; }
+  .app-shell .mobile-analysis > span { font-size: 7px; }
+  .app-shell .message p { font-size: 12px; }
+  .app-shell .message time { font-size: 9px; }
+  .app-shell .chat-date { font-size: 10px; }
+  .app-shell .composer textarea { font-size: 12px; }
+  .app-shell .composer > div > span { font-size: 6px; }
+  .app-shell .chat-system { font-size: 7px; }
+  .app-shell .client-summary { gap: 25px; padding: 22px 0; }
+  .app-shell .client-summary strong { font-size: 30px; }
+  .app-shell .client-summary span { font-size: 10px; }
+  .app-shell .client-summary > div:first-child span { font-size: 13px; }
+  .app-shell .client-summary > div:first-child strong { font-size: 36px; }
+  .app-shell .client-table .badge { font-size: 9px; }
+  .app-shell .client-table th { font-size: 11px; }
+  .app-shell .table-person strong { font-size: 13px; }
+  .app-shell .table-person small { font-size: 11px; }
+  .app-shell .channel-label, .app-shell .owner-name { font-size: 12px; }
+  .app-shell .table-toolbar { padding: 17px; }
+  .app-shell .table-toolbar select { font-size: 12px; }
+  .app-shell .table-foot { font-size: 9px; }
+  .app-shell .table-foot span { font-size: 8px; }
+  .app-shell .client-card h3 { font-size: 17px; }
+  .app-shell .client-card p, .app-shell .client-card > span { font-size: 12px; }
+  .app-shell .client-card footer strong { font-size: 15px; }
+  .app-shell .chart-card { padding: 24px 20px; }
+  .app-shell .chart-legend > strong { font-size: 45px; }
+  .app-shell .chart-legend > span { font-size: 8px; }
+  .app-shell .competency-card { padding: 24px 21px; }
+  .app-shell .competency-card .panel-heading h2 { font-size: 14px; }
+  .app-shell .competency > div:first-child { font-size: 10px; }
+  .app-shell .competency strong { font-size: 11px; }
+  .app-shell .competency-card > p { font-size: 9px; }
+  .app-shell .review-table { padding: 24px 18px 0; }
+  .app-shell .review-row { gap: 10px; }
+  .app-shell .review-row strong { font-size: 11px; }
+  .app-shell .review-row > div > span { font-size: 9px; }
+  .app-shell .review-row > .text-link { font-size: 0; }
+  .app-shell .methodology-note h3 { font-size: 31px; }
+  .app-shell .methodology-note p { font-size: 12px; }
+  .app-shell .knowledge-hero { padding: 24px 20px; gap: 16px; }
+  .app-shell .knowledge-orbit { width: 47px; height: 47px; }
+  .app-shell .knowledge-hero h2 { font-size: 29px; }
+  .app-shell .knowledge-hero p { font-size: 10px; }
+  .app-shell .knowledge-hero .ai-flag { font-size: 7px; }
+  .app-shell .knowledge-hero > div { flex-basis: calc(100% - 65px); }
+  .app-shell .knowledge-hero > .btn { margin-left: 63px; font-size: 10px; }
+  .app-shell .knowledge-toolbar > .input-search { width: 75%; }
+  .app-shell .knowledge-toolbar input { font-size: 11px; }
+  .app-shell .knowledge-toolbar > .muted { font-size: 9px; }
+  .app-shell .filter-pills { gap: 3px; }
+  .app-shell .filter-pills button { font-size: 9px; padding: 8px; }
+  .app-shell .knowledge-card { padding: 26px; min-height: 300px; }
+  .app-shell .knowledge-card h3 { font-size: 17px; }
+  .app-shell .knowledge-card > p { font-size: 13px; }
+  .app-shell .knowledge-card footer { font-size: 10px; }
+  .app-shell .knowledge-card > .badge { font-size: 9px; }
+  .app-shell .team-banner { padding: 28px 24px; }
+  .app-shell .team-banner h2 { font-size: 42px; }
+  .app-shell .team-banner p { font-size: 12px; }
+  .app-shell .team-stack { padding-top: 24px; }
+  .app-shell .team-stack .avatar { width: 48px; height: 48px; }
+  .app-shell .team-stack > span:last-child { font-size: 24px; margin-top: 26px; }
+  .app-shell .team-toolbar h2 { font-size: 15px; }
+  .app-shell .segmented button { font-size: 9px; }
+  .app-shell .person-card { padding: 28px; }
+  .app-shell .person-card h3 { font-size: 17px; }
+  .app-shell .person-card > p { font-size: 12px; }
+  .app-shell .person-numbers strong { font-size: 38px; }
+  .app-shell .person-numbers small { font-size: 11px; }
+  .app-shell .person-numbers span { font-size: 10px; }
+  .app-shell .person-growth, .app-shell .person-growth strong { font-size: 11px; }
+  .app-shell .person-card footer { font-size: 12px; }
+  .app-shell .integration-notice { padding: 18px 16px; }
+  .app-shell .integration-notice strong { font-size: 11px; }
+  .app-shell .integration-notice p { font-size: 9px; }
+  .app-shell .integration-card { padding: 28px; }
+  .app-shell .integration-card h2 { font-size: 31px; }
+  .app-shell .integration-card p { font-size: 13px; }
+  .app-shell .integration-detail { font-size: 11px; }
+  .app-shell .integration-card footer > span { font-size: 11px; }
+  .app-shell .integration-card .text-link { font-size: 12px; }
+  .app-shell .architecture { padding: 25px 21px; }
+  .app-shell .architecture h2 { font-size: 16px; }
+  .app-shell .architecture-step h3 { font-size: 12px; }
+  .app-shell .architecture-step p { font-size: 9px; }
+  .app-shell .architecture-caption { font-size: 9px; }
+  .app-shell .modal { padding: 27px 22px; border-radius: 1px; max-height: calc(100dvh - 20px); }
+  .app-shell .modal h2 { font-size: 32px; line-height: 1.1; }
+  .app-shell .modal > header .eyebrow { font-size: 7px; }
+  .app-shell .modal-actions .btn { font-size: 10px; padding: 12px; }
+  .app-shell .form-label { font-size: 12px; }
+  .app-shell .form-label input, .app-shell .form-label textarea, .app-shell .form-label select { font-size: 13px; }
+  .app-shell .small-note { font-size: 9px; }
+  .app-shell .detail-list { grid-template-columns: 100px 1fr; }
+  .app-shell .detail-list dt { font-size: 10px; }
+  .app-shell .detail-list dd { font-size: 12px; }
+  .app-shell .about-hero { padding: 21px 18px; }
+  .app-shell .about-hero p { font-size: 24px; }
+  .app-shell .about-grid h3 { font-size: 14px; }
+  .app-shell .check-list li, .app-shell .future-list li { font-size: 11px; }
+  .app-shell .lesson-art { padding: 22px 17px; gap: 15px; }
+  .app-shell .lesson-art > span { font-size: 29px; }
+  .app-shell .lesson-lead { font-size: 13px; }
+  .app-shell .lesson-comparison p { font-size: 12px; }
+  .app-shell .source-inline { font-size: 9px; }
+  .app-shell .quiz-context p { font-size: 26px; }
+  .app-shell .quiz-context strong { font-size: 10px; }
+  .app-shell .quiz-title { font-size: 15px; }
+  .app-shell .quiz-options button { padding: 17px 14px; font-size: 12px; }
+  .app-shell .quiz-feedback { font-size: 11px; }
+  .app-shell .roleplay-client p { font-size: 12px; }
+  .app-shell .roleplay-client strong { font-size: 11px; }
+  .app-shell .practice-evaluation h3 { font-size: 14px; }
+  .app-shell .practice-evaluation > div { font-size: 11px; }
+  .app-shell .practice-evaluation p { font-size: 11px; }
+  .app-shell .lesson-success h2 { font-size: 37px; }
+  .app-shell .lesson-success > p { font-size: 12px; }
+  .app-shell .review-content-grid p { font-size: 12px; }
+  .app-shell .review-content-grid .form-label { font-size: 11px; }
+  .app-shell .review-content-grid textarea { font-size: 13px; }
+  .app-shell .review-quote { font-size: 32px; }
+  .app-shell .search-result h3 { font-size: 16px; }
+  .app-shell .knowledge-answer .search-result p { font-size: 12px; }
+  .app-shell .toast { left: 50%; font-size: 11px; }
+}

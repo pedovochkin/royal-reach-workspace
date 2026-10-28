@@ -1,7 +1,11 @@
 import { build } from 'esbuild';
-import { mkdir, copyFile, writeFile } from 'node:fs/promises';
+import { mkdir, copyFile, writeFile, readFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 await mkdir('dist', { recursive: true });
 await build({ entryPoints: ['src/main.jsx'], bundle: true, minify: true, format: 'esm', target: ['es2020'], outdir: 'dist', entryNames: 'app', jsx: 'automatic', define: { 'process.env.NODE_ENV': '"production"' } });
-for (const file of ['index.html', 'favicon.svg']) await copyFile(`public/${file}`, `dist/${file}`);
+await copyFile('public/favicon.svg', 'dist/favicon.svg');
+const revision = createHash('sha256').update(await readFile('dist/app.js')).update(await readFile('dist/app.css')).digest('hex').slice(0, 12);
+const html = (await readFile('public/index.html', 'utf8')).replace('./app.css', `./app.css?v=${revision}`).replace('./app.js', `./app.js?v=${revision}`).replace('./favicon.svg', `./favicon.svg?v=${revision}`);
+await writeFile('dist/index.html', html);
 await writeFile('dist/.nojekyll', '');
 console.log('Built static application in dist/');
