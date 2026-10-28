@@ -1093,3 +1093,7 @@ body { background: var(--paper); }
   .app-shell .knowledge-answer .search-result p { font-size: 12px; }
   .app-shell .toast { left: 50%; font-size: 11px; }
 }
+@media (min-width: 701px) and (max-width: 1100px) {
+  .conversation-sketch { width: 160px; right: -9px; top: auto; bottom: 1px; opacity: .35; }
+  .hero-margin-note { display: none; }
+}
