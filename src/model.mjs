@@ -1,5 +1,5 @@
 export const STORAGE_KEY = 'royal-reach-demo-v1';
-export const stages = ['Новый контакт', 'Выясняем задачу', 'Предложение', 'Согласование', 'Оплачено'];
+export const stages = ['Новый контакт', 'Выясняем задачу', 'Предложение', 'Ожидаем оплату', 'Оплачено'];
 export const team = [
   { id: 1, name: 'Антон Ковалёв', initials: 'АК', role: 'Менеджер', color: 'sage', score: 87, xp: 1240, skills: [91, 85, 76, 88] },
   { id: 2, name: 'Алина Миронова', initials: 'АМ', role: 'Менеджер', color: 'peach', score: 94, xp: 1680, skills: [94, 96, 89, 92] },

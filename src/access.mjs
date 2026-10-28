@@ -1,7 +1,7 @@
 // These scopes model the prototype's UI. Production authorization belongs on the server.
 export const roleViews = {
-  manager: ['overview', 'inbox', 'clients', 'team', 'knowledge', 'integrations'],
-  employee: ['overview', 'inbox', 'clients', 'academy', 'knowledge'],
+  manager: ['overview', 'inbox', 'clients', 'analytics', 'academy', 'team', 'knowledge'],
+  employee: ['overview', 'inbox', 'clients', 'analytics', 'academy', 'knowledge'],
 };
 export const canVisit = (role, page) => (roleViews[role] || roleViews.employee).includes(page);
 export function scopeData(state, role, userId = 1) {
