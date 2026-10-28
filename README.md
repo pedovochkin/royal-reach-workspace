@@ -2,6 +2,21 @@
 
 Самостоятельный интерактивный frontend-прототип CRM и обучения продажам. Написан на React и CSS, собирается в статические файлы. Не использует Sites, серверные API, ключи или реальные персональные данные.
 
+**Опубликованный макет:** https://pedovochkin.github.io/royal-reach-workspace/
+
+**Исходный код:** https://github.com/pedovochkin/royal-reach-workspace
+
+GitHub Pages публикует содержимое ветки `gh-pages`. Обновление после изменений:
+
+```sh
+npm run build
+git add src public README.md
+git add -f dist
+git commit -m "Update prototype"
+git push origin main
+git subtree push --prefix dist origin gh-pages
+```
+
 ## Запуск
 
 ```sh
